@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { ChangePost } from '../components/ChangePost';
+import { Loading } from '../components/Loading';
 import { deletePost } from '../redux/action';
 
 export const Post = ({match})=> {
@@ -33,15 +34,16 @@ export const Post = ({match})=> {
         <div className="container">
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
-                        <li className="breadcrumb-item" aria-current="page">
-                            <Link to="/user">User</Link>
-                        </li>
-                    <li className="breadcrumb-item active" aria-current="page">List of Users</li>
+                    <li className="breadcrumb-item" aria-current="page">
+                         <Link to="/user">User</Link>
+                    </li>
+                    <li className="breadcrumb-item" aria-current="page">
+                      <Link to="/posts">Posts</Link>
+                    </li>
+                    <li className="breadcrumb-item active" aria-current="page">{postId}</li>
                 </ol>
             </nav>
-            <div className="d-flex justify-content-center align-items-center">
-                <span className="spinner-border" role="status"></span>
-            </div>
+            <Loading />
         </div>
     )
 
@@ -59,7 +61,7 @@ export const Post = ({match})=> {
                     <li className="breadcrumb-item" aria-current="page">
                         <Link to="/posts">Posts</Link>
                     </li>
-                    <li className="breadcrumb-item active" aria-current="page">Post</li>
+                    <li className="breadcrumb-item active" aria-current="page">{postId}</li>
                 </ol>
             </nav>
       </div>

@@ -24,7 +24,6 @@ export function getPosts (id) {
         fetch( `https://jsonplaceholder.typicode.com/posts?userId=${id}`)
             .then(res=> res.json())
             .then(result=>{
-                console.log(result);
                 dispatch({
                     type: types.GET_POSTS,
                     payload: result
